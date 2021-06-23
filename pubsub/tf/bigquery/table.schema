@@ -1,0 +1,39 @@
+[
+ {
+  "name": "name",
+  "type": "STRING",
+  "mode": "NULLABLE"
+ },
+ {
+  "name": "id",
+  "type": "INTEGER",
+  "mode": "NULLABLE"
+ },
+ {
+  "name": "email",
+  "type": "STRING",
+  "mode": "NULLABLE"
+ },
+ {
+  "name": "company",
+  "type": "STRING",
+  "mode": "NULLABLE"
+ },
+ {
+  "name": "phones",
+  "type": "RECORD",
+  "mode": "REPEATED",
+  "fields": [
+   {
+    "name": "number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   },
+   {
+    "name": "type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+   }
+  ]
+ }
+]
