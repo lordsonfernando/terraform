@@ -29,3 +29,11 @@ resource "google_bigquery_table" "table" {
   schema = file("${path.module}/bigquery/table.schema")
 
 }
+resource "google_bigquery_table" "table_two" {
+  dataset_id          = google_bigquery_dataset.dataset.dataset_id
+  table_id            = var.bq_table_name_two #modified
+  deletion_protection = false
+
+  schema = file("${path.module}/bigquery/table_two.schema") # modified
+
+}
