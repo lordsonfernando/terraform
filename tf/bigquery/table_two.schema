@@ -1,0 +1,17 @@
+[
+ {
+  "name": "order_id",
+  "type": "INTEGER",
+  "mode": "NULLABLE"
+ },
+  {
+  "name": "order_name",
+  "type": "STRING",
+  "mode": "NULLABLE"
+ },
+ {
+  "name": "email",
+  "type": "STRING",
+  "mode": "NULLABLE"
+ }
+]
