@@ -37,5 +37,23 @@ def main():
 
     print(f"Published messages to {topic_path}.")
 
+    data = {
+        'name': 'py',
+        'id' : 1,
+        'email': 'test@example.com'
+    }
+    data = json.dumps(data)
+    data = data.encode("utf-8")
+    for n in range(1, 10):
+        # data = "Message number {}".format(n)        
+        # # Data must be a bytestring
+        # data = data.encode("utf-8")
+        # When you publish a message, the client returns a future.
+        future = publisher.publish(topic_path, data)
+        print(future.result())
+
+    print(f"Published messages to {topic_path}.")
+
+
 if __name__ == '__main__':
     main()

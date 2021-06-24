@@ -27,6 +27,12 @@ variable "bq_table_name" {
   type = string
   description = "Big Query Table Name"
 }
+# modified
+variable "bq_table_name_two" {
+  type = string
+  description = "Big Query Table Name"
+}
+
 
 # variable "schemafile" {
 #   default = "schema.json"

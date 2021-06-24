@@ -26,3 +26,17 @@ resource "google_dataflow_job" "pubsub_stream" {
 
   on_delete = "cancel"
 }
+
+resource "google_dataflow_job" "pubsub_stream_two" {
+  name                    = "${random_string.random.result}-dataflow-job2"
+  template_gcs_path       = "gs://dataflow-templates-us-central1/latest/PubSub_to_BigQuery"
+  temp_gcs_location       = "${google_storage_bucket.dataflow.url}/tmp"
+  enable_streaming_engine = true
+  service_account_email   = google_service_account.dataflow_sa.email
+  parameters = {
+    inputTopic      = google_pubsub_topic.topic1.id
+    outputTableSpec = "${var.project_id}:${google_bigquery_dataset.dataset.dataset_id}.${google_bigquery_table.table_two.table_id}"
+  }
+
+  on_delete = "cancel"
+}

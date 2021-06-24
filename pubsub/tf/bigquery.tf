@@ -16,7 +16,7 @@ resource "google_bigquery_dataset" "dataset" {
 
   access {
     role          = "OWNER"
-    user_by_email = "ashwinknaik@google.com"
+    user_by_email = "fdolordson@gmail.com"
   }
 }
 
@@ -27,5 +27,15 @@ resource "google_bigquery_table" "table" {
   deletion_protection = false
 
   schema = file("${path.module}/bigquery/table.schema")
+
+}
+
+
+resource "google_bigquery_table" "table_two" {
+  dataset_id          = google_bigquery_dataset.dataset.dataset_id
+  table_id            = var.bq_table_name_two
+  deletion_protection = false
+
+  schema = file("${path.module}/bigquery/table_two.schema")
 
 }
